@@ -14,18 +14,37 @@ body {
     margin: 0 auto;
     padding: 0 15px;
     color: #231f20;
-    font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+    font-family: 'Poppins', 'Lato', Arial, sans-serif;
     line-height: 1.25;
+    background-color: #fdf6ee; /* Warm ivory background */
 }
 
 a {
     background-color: transparent;
-    color: #308282;
-    text-decoration: underline;
+    color: #5cc9c1; /* Light teal for links */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 a:hover {
-    color: #ea1b10;
+    color: #00AEEF; /* Secondary blue on hover */
+    transform: translateY(-2px);
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #00AEEF;
+    transition: width 0.3s ease;
+}
+
+a:hover::after {
+    width: 100%;
 }
 
 h1,
@@ -40,6 +59,11 @@ ul {
     font-weight: 400;
 }
 
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+    letter-spacing: -0.02em;
+}
+
 svg:not(:root) {
     overflow: hidden;
 }
@@ -50,7 +74,7 @@ svg:not(:root) {
     align-items: center;
     padding-top: 20px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .logo {
@@ -65,20 +89,41 @@ svg:not(:root) {
 .figure-logo {
     max-width: 150px;
     max-height: 55.1px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.figure-logo:hover {
+    transform: scale(1.05);
 }
 
 .release-notes {
     font-size: 14px;
+    color: #666666;
+    font-family: 'Poppins', sans-serif;
 }
 
 .main {
-    padding: 40px 0;
+    padding: 60px 0;
     margin: 0 auto;
     text-align: center;
 }
 
 .figure-space {
     max-width: 265px;
+    margin: 0 auto 30px;
+    opacity: 0;
+    animation: fadeInDown 1s ease-out forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes pos {
@@ -91,55 +136,104 @@ svg:not(:root) {
 }
 
 .egg {
-    fill: #43b1b0;
+    fill: #5cc9c1; /* Light teal */
     animation: pos 3s ease infinite;
     transform: translateY(50px);
     transform-origin: 50% 80%;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.egg:hover {
+    fill: #00AEEF; /* Secondary blue on hover */
+    transform: translateY(40px) scale(1.05);
 }
 
 .main-text {
     max-width: 400px;
-    margin: 5px auto;
+    margin: 5px auto 30px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .main-text h1 {
-    font-size: 22px;
+    font-size: 26px;
+    color: #003366; /* Primary navy blue */
+    margin-bottom: 15px;
 }
 
 .main-text p {
     margin: 15px auto 0;
+    color: #222222;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 .footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    border-top: 1px solid #e6e6e6;
-    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+    padding: 30px 10px;
+    background-color: #fff8f0; /* Soft cream background */
+    border-radius: 16px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .option {
     display: block;
-    padding: 10px 10px 10px 34px;
+    padding: 15px 15px 15px 44px;
     position: relative;
     text-decoration: none;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    flex: 1 1 calc(50% - 20px);
+    margin: 10px;
+}
+
+.option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background: #fff;
 }
 
 .option svg {
-    width: 24px;
-    height: 24px;
-    fill: gray;
+    width: 30px;
+    height: 30px;
+    fill: #5cc9c1; /* Light teal */
     border: 1px solid #d9d9d9;
-    padding: 5px;
+    padding: 7px;
     border-radius: 100%;
-    top: 10px;
-    inset-inline-start: 0;
+    top: 15px;
+    inset-inline-start: 10px;
     position: absolute;
+    transition: all 0.3s ease;
+}
+
+.option:hover svg {
+    fill: #00AEEF; /* Secondary blue */
+    transform: scale(1.1);
 }
 
 .option h2 {
     font-size: 19px;
-    text-decoration: underline;
+    color: #003366; /* Primary navy blue */
+    margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .option p {
@@ -147,6 +241,7 @@ svg:not(:root) {
     color: #231f20;
     font-size: 15px;
     font-weight: 300;
+    line-height: 1.5;
 }
 
 @media (max-width: 996px) {
@@ -157,28 +252,82 @@ svg:not(:root) {
 
 @media (max-width: 767px) {
     .option {
-        flex: 0 0 50%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .main {
+        padding: 40px 0;
+    }
+    
+    .figure-space {
+        max-width: 200px;
+    }
+    
+    .main-text h1 {
+        font-size: 22px;
+    }
+    
+    .footer {
+        display: block;
+        width: 100%;
+        margin: 20px 0;
+        padding: 20px;
     }
 }
 
 @media (max-width: 599px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo {
+        margin: 0 0 15px 0;
+    }
+    
+    .release-notes {
+        margin-bottom: 15px;
+    }
+    
     .main {
-        padding: 20px 0;
+        padding: 30px 0;
     }
-
+    
     .figure-space {
-        max-width: 200px;
+        max-width: 180px;
     }
-
-    .footer {
-        display: block;
-        width: 300px;
-        margin: 0 auto;
+    
+    .main-text h1 {
+        font-size: 20px;
+    }
+    
+    .option {
+        padding: 12px 12px 12px 40px;
+    }
+    
+    .option svg {
+        width: 26px;
+        height: 26px;
+        top: 12px;
+        inset-inline-start: 8px;
+    }
+    
+    .option h2 {
+        font-size: 17px;
     }
 }
 
 @media (max-width: 360px) {
     .header-link {
         max-width: 100px;
+    }
+    
+    .main-text h1 {
+        font-size: 18px;
+    }
+    
+    .option h2 {
+        font-size: 16px;
     }
 }

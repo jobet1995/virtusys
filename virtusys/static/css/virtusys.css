@@ -1,0 +1,395 @@
+/* =========================================================
+   VirtuSys Global – Design Foundation System
+   Professional | Modern | Corporate | Responsive | Accessible
+   ========================================================= */
+
+/* -------------------------------------
+   GOOGLE FONTS
+-------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lato:wght@400;500;700&family=Merriweather:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* -------------------------------------
+   DESIGN TOKENS (THEME VARIABLES)
+-------------------------------------- */
+:root {
+  /* Brand Colors */
+  --color-primary: #003366;     /* Deep Navy Blue - Trust & Stability */
+  --color-secondary: #00AEEF;   /* Bright Tech Blue - Innovation */
+  --color-accent: #F5F5F5;      /* Neutral Light Gray */
+  --color-dark: #1a1a1a;        /* Corporate Dark Tone */
+  --color-text: #222222;        /* Main Text Color */
+  --color-muted: #666666;       /* Secondary Text */
+  --color-border: #e0e0e0;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-error: #dc3545;
+  --color-white: #FFFFFF;
+  --color-warm-ivory: #fdf6ee;    /* Warm ivory for backgrounds */
+  --color-warm-cream: #fff8f0;    /* Soft cream for cards */
+  --color-warm-gold: #fdf0e0;     /* Pale gold for accents */
+  --color-teal: #5cc9c1;          /* Light teal for interactive elements */
+  --color-maroon: #7a2d44;        /* Gentle maroon for special accents */
+
+  /* Typography */
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Lato', sans-serif;
+  --font-heading: 'Merriweather', serif;
+  --font-elegant: 'Poppins', sans-serif;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-sm: 14px;
+  --line-height-base: 1.6;
+
+  /* Effects & Motion */
+  --radius-sm: 4px;
+  --radius-base: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.15);
+  --transition-fast: all 0.2s ease-in-out;
+  --transition-base: all 0.3s ease;
+  --transition-slow: all 0.6s ease;
+  --transition-organic: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Organic easing */
+
+  /* Layout Metrics */
+  --container-width: 1200px;
+  --section-padding: 80px;
+  --gap-xs: 8px;
+  --gap-sm: 12px;
+  --gap-base: 20px;
+  --gap-lg: 40px;
+  --gap-xl: 60px;
+}
+
+/* -------------------------------------
+   RESET & BASE STYLES
+-------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background-color: var(--color-warm-ivory);
+  color: var(--color-text);
+  line-height: var(--line-height-base);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* -------------------------------------
+   TYPOGRAPHY SYSTEM
+-------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.3;
+  margin-bottom: 0.75em;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.6rem; }
+h5 { font-size: 1.3rem; }
+h6 { font-size: 1.1rem; }
+
+p {
+  font-family: var(--font-secondary);
+  color: var(--color-text);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.lead {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  font-family: var(--font-elegant);
+}
+
+.small-text {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* -------------------------------------
+   COLOR & BACKGROUND UTILITIES
+-------------------------------------- */
+.bg-primary { background-color: var(--color-primary); color: var(--color-white); }
+.bg-secondary { background-color: var(--color-secondary); color: var(--color-white); }
+.bg-accent { background-color: var(--color-accent); }
+.bg-white { background-color: var(--color-white); }
+.bg-warm-ivory { background-color: var(--color-warm-ivory); }
+.bg-warm-cream { background-color: var(--color-warm-cream); }
+.bg-warm-gold { background-color: var(--color-warm-gold); }
+
+.text-primary { color: var(--color-primary) !important; }
+.text-secondary { color: var(--color-secondary) !important; }
+.text-muted { color: var(--color-muted) !important; }
+.text-white { color: var(--color-white) !important; }
+.text-teal { color: var(--color-teal) !important; }
+.text-maroon { color: var(--color-maroon) !important; }
+
+/* -------------------------------------
+   LAYOUT GRID & CONTAINERS
+-------------------------------------- */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap-base);
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 992px) {
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* -------------------------------------
+   CARD SYSTEM
+-------------------------------------- */
+.card {
+  background: var(--color-warm-cream);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 30px;
+  transition: var(--transition-organic);
+  border: 1px solid var(--color-border);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+/* -------------------------------------
+   BUTTON DESIGN SYSTEM
+-------------------------------------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-elegant);
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: var(--transition-organic);
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-primary {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background: #0093d1;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-base);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.btn-outline:hover {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-base);
+}
+
+.btn-teal {
+  background: var(--color-teal);
+  color: var(--color-white);
+}
+
+.btn-teal:hover {
+  background: #49b6ae;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-base);
+}
+
+/* -------------------------------------
+   ANIMATIONS & TRANSITIONS
+-------------------------------------- */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: var(--transition-organic);
+}
+
+.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------------------
+   ACCESSIBILITY & INTERACTION
+-------------------------------------- */
+:focus-visible {
+  outline: 3px solid var(--color-teal);
+  outline-offset: 3px;
+}
+
+[role="button"], button {
+  transition: var(--transition-base);
+}
+
+[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* -------------------------------------
+   SHADOWS, BORDERS & DEPTH
+-------------------------------------- */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-base { box-shadow: var(--shadow-base); }
+.shadow-hover:hover { box-shadow: var(--shadow-hover); }
+
+.border { border: 1px solid var(--color-border); }
+.rounded { border-radius: var(--radius-base); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+
+/* -------------------------------------
+   SPACING UTILITIES
+-------------------------------------- */
+.mt-1 { margin-top: var(--gap-xs); }
+.mt-2 { margin-top: var(--gap-sm); }
+.mt-3 { margin-top: var(--gap-base); }
+.mt-4 { margin-top: var(--gap-lg); }
+.mt-5 { margin-top: var(--gap-xl); }
+.mb-1 { margin-bottom: var(--gap-xs); }
+.mb-2 { margin-bottom: var(--gap-sm); }
+.mb-3 { margin-bottom: var(--gap-base); }
+.mb-4 { margin-bottom: var(--gap-lg); }
+.mb-5 { margin-bottom: var(--gap-xl); }
+.pt-1 { padding-top: var(--gap-xs); }
+.pt-2 { padding-top: var(--gap-sm); }
+.pt-3 { padding-top: var(--gap-base); }
+.pt-4 { padding-top: var(--gap-lg); }
+.pt-5 { padding-top: var(--gap-xl); }
+.pb-1 { padding-bottom: var(--gap-xs); }
+.pb-2 { padding-bottom: var(--gap-sm); }
+.pb-3 { padding-bottom: var(--gap-base); }
+.pb-4 { padding-bottom: var(--gap-lg); }
+.pb-5 { padding-bottom: var(--gap-xl); }
+
+/* -------------------------------------
+   RESPONSIVE DESIGN
+-------------------------------------- */
+@media (max-width: 1200px) {
+  :root {
+    --section-padding: 60px;
+    --container-width: 960px;
+  }
+  
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 2.1rem; }
+  h3 { font-size: 1.8rem; }
+}
+
+@media (max-width: 992px) {
+  :root {
+    --section-padding: 50px;
+    --container-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 40px;
+    --container-width: 100%;
+  }
+  
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.6rem; }
+  .btn { padding: 10px 22px; font-size: 0.9rem; }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --section-padding: 30px;
+  }
+  
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.3rem; }
+  .lead { font-size: 1.1rem; }
+}
